@@ -35,6 +35,7 @@ export default function Experience() {
   let ParticlesMixer = new THREE.AnimationMixer(particles.scene)
   particles.animations.forEach((clip) => {
     const action = ParticlesMixer.clipAction(clip)
+    action.setEffectiveTimeScale(0.2)
     action.play()
   })
 
@@ -57,8 +58,8 @@ export default function Experience() {
 
   return (
     <>
-      <directionalLight castShadow position={[1, 2, 3]} intensity={1.2} />
-      <ambientLight intensity={0.3} />
+      <directionalLight castShadow position={[1, 2, 3]} intensity={1.8} />
+      <ambientLight intensity={0.6} />
 
       <OrbitControls />
 
