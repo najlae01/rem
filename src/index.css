@@ -1,13 +1,29 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Rajdhani:wght@300;400;600;700&family=VT323&display=swap');
+
+html,
+body,
+#root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
+  background: #291566;
+  font-family: 'Rajdhani', sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*::-webkit-scrollbar {
+  -ms-overflow-style: none;
+  /* scrollbar-width: none; */
+  scrollbar-width: thin !important;
+  scrollbar-color: #002939 !important;
+  background-color: #002939 !important;
+}
+
+* {
+  box-sizing: border-box;
 }
