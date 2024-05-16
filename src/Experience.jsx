@@ -6,18 +6,16 @@ import {
   Text3D,
   useTexture,
   OrbitControls,
+  Float,
 } from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSpring } from 'react-spring'
 import { useControls } from 'leva'
+import { useNavigate } from 'react-router-dom'
 
-export default function Experience() {
-  const particles = useGLTF('./models/particles.glb')
-
-  const rem = useGLTF('./models/rem.glb')
-
+export default function Experience({ rem, particles, music }) {
   const { cameraInitialPositionForMobile, cameraInitialPositionForDesktop } =
     useControls('Camera Initial Position', {
       cameraInitialPositionForDesktop: {
@@ -32,15 +30,6 @@ export default function Experience() {
       },
     })
 
-  const environmentColor = useTexture('/textures/Environment_Color.png')
-  const environmentOpaque = useTexture('/textures/Environment_Opaque.png')
-  const remColor = useTexture('/textures/Rem_Color.png')
-  const remShadedColor = useTexture('/textures/Rem_ColorShaded.png')
-  const remOpaque = useTexture('/textures/Rem_Opaque.png')
-
-  console.log(rem.scene.children[1])
-  console.log(particles.scene)
-
   let RemMixer = new THREE.AnimationMixer(rem.scene)
   let audio = new Audio('./audio/ChibiRems-Confession.mp3')
   audio.loop = false
@@ -53,37 +42,77 @@ export default function Experience() {
     action.play()
   })
 
+  const navigate = useNavigate()
+
+  let animation
+
   useFrame((state, delta) => {
     RemMixer.update(delta)
     ParticlesMixer.update(delta)
+
+    if (audio.paused && (!animation || !animation.isRunning())) {
+      music.play()
+    }
   })
 
   const playRemConfession = () => {
-    const action = RemMixer.clipAction(rem.animations[0])
-    if (!action.isRunning() && audio.paused) {
-      action.reset()
-      action.setLoop(THREE.LoopOnce)
+    animation = RemMixer.clipAction(rem.animations[0])
+    if (!animation.isRunning() && audio.paused) {
+      animation.reset()
+      music.pause()
+      animation.setLoop(THREE.LoopOnce)
       //action.clampWhenFinished = true
-      action.enabled = true
+      animation.enabled = true
       audio.play()
-      action.play()
+      animation.play()
+
+      // Add an event listener for the 'ended' event of the audio
+      audio.onended = () => {
+        // Check if the animation is still running
+        if (!animation.isRunning()) {
+          // If the animation is also finished, play the music
+          music.play()
+        }
+      }
     }
   }
 
   return (
     <>
-      <directionalLight castShadow position={[1, 2, 3]} intensity={2.2} />
-      <ambientLight intensity={1.2} />
+      <>
+        <directionalLight castShadow position={[1, 2, 3]} intensity={2.2} />
+        <ambientLight intensity={1.2} />
 
-      <OrbitControls />
+        <OrbitControls />
 
-      <primitive object={particles.scene} position={[0, -1, 0]} />
+        <primitive object={particles.scene} position={[0, -1, 0]} />
 
-      <primitive object={rem.scene} position={[0, -0.5, 0]} />
+        <primitive object={rem.scene} position={[0, -0.5, 0]} />
 
-      <Html position={[0.5, 0.2, 0]}>
-        <button onClick={() => playRemConfession()}>Rem Confession</button>
-      </Html>
+        <Float floatIntensity={1.5}>
+          <Html position={[0.5, 0.2, 0]}>
+            <button className='red' onClick={() => playRemConfession()}>
+              REM CONFESSION
+            </button>
+          </Html>
+        </Float>
+
+        <Float floatIntensity={1.5}>
+          <Html position={[-1, 0.2, 0]}>
+            <button className='blue' onClick={() => navigate('/contact')}>
+              CONTACT
+            </button>
+          </Html>
+        </Float>
+
+        <Float floatIntensity={1.5}>
+          <Html position={[0, -0.6, 0]}>
+            <button className='green' onClick={() => navigate('/about')}>
+              ABOUT
+            </button>
+          </Html>
+        </Float>
+      </>
     </>
   )
 }

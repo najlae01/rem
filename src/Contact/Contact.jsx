@@ -1,0 +1,174 @@
+import { a } from '@react-spring/three'
+import { Html, Float } from '@react-three/drei'
+import './Contact.css'
+import { FiLinkedin, FiGithub } from 'react-icons/fi'
+import emailjs from '@emailjs/browser'
+import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+export default function Contact({}) {
+  const navigate = useNavigate()
+  const formRef = useRef()
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    message: '',
+  })
+
+  const [loading, setLoading] = useState(false)
+
+  const handleChange = (e) => {
+    const { target } = e
+    const { name, value } = target
+
+    setForm({
+      ...form,
+      [name]: value,
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setLoading(true)
+
+    emailjs
+      .send(
+        'service_mnv8heg',
+        'template_9n8kd55',
+        {
+          from_name: form.name,
+          to_name: 'Najlae Abarghache',
+          from_email: form.email,
+          to_email: 'najlae.abarghache1@gmail.com',
+          message: form.message,
+        },
+        'd6nXovs-WlQdnNFys'
+      )
+      .then(
+        () => {
+          setLoading(false)
+          alert('Thank you. I will get back to you as soon as possible.')
+
+          setForm({
+            name: '',
+            email: '',
+            message: '',
+          })
+        },
+        (error) => {
+          setLoading(false)
+          console.error(error)
+
+          alert('Ahh, something went wrong. Please try again.')
+        }
+      )
+  }
+
+  useEffect(() => {
+    // Delay the rendering of buttons for 5 seconds
+    const timer = setTimeout(() => {
+      // Add the CSS class to make the buttons visible
+      const buttons = document.querySelectorAll('.hide-icons')
+      buttons.forEach((button) => {
+        button.classList.remove('hide-icons')
+        button.classList.add('show-icons')
+      })
+    }, 800)
+
+    // Clear the timer if the component unmounts
+    return () => clearTimeout(timer)
+  }, [])
+  return (
+    <>
+      <div className='contact-container '>
+        <button className='go-back' onClick={() => navigate('/')}>
+          <div className='nav-icon'>
+            <div className='arrows'></div>
+          </div>
+        </button>
+
+        <div className='contact-me'>
+          <div className='header'>
+            <h1 className='contact-header'>Get in touch</h1>
+            <img src='./images/emoji.png' />
+          </div>
+
+          <form ref={formRef} onSubmit={handleSubmit} className='contact-form'>
+            <label className=''>
+              <input
+                type='text'
+                name='name'
+                value={form.name}
+                onChange={handleChange}
+                placeholder='Name..'
+                className='contact-placeholder name'
+                required
+              />
+            </label>
+            <label className=''>
+              <input
+                type='email'
+                name='email'
+                value={form.email}
+                onChange={handleChange}
+                placeholder='Email..'
+                className='contact-placeholder'
+                required
+              />
+            </label>
+            <label className=''>
+              <textarea
+                rows={7}
+                name='message'
+                value={form.message}
+                onChange={handleChange}
+                placeholder='Message..'
+                className='contact-placeholder'
+                required
+              />
+            </label>
+            <div className='socials'>
+              <button type='submit' className='contact-button hoverable'>
+                {loading ? 'Sending...' : 'Send'}
+              </button>
+              <div className='hide-icons social-icons'>
+                <div className='social-icon'>
+                  <a
+                    href='https://www.linkedin.com/in/najlae-abarghache/'
+                    target='_blank'
+                    className='icon-link'
+                    rel='noopener noreferrer'
+                  >
+                    <FiLinkedin
+                      className='icon'
+                      style={{
+                        textDecoration: 'none',
+                        color: '#dcecfb',
+                      }}
+                    />
+                  </a>
+                </div>
+                <div className='social-icon'>
+                  <a
+                    className='icon-link'
+                    target='_blank'
+                    href='https://github.com/najlae01'
+                    rel='noopener noreferrer'
+                  >
+                    <FiGithub
+                      className='icon'
+                      style={{
+                        textDecoration: 'none',
+                        color: '#dcecfb',
+                      }}
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
+  )
+}
