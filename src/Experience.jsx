@@ -18,6 +18,20 @@ export default function Experience() {
 
   const rem = useGLTF('./models/rem.glb')
 
+  const { cameraInitialPositionForMobile, cameraInitialPositionForDesktop } =
+    useControls('Camera Initial Position', {
+      cameraInitialPositionForDesktop: {
+        value: { x: 5.5, y: 3.5, z: 11 },
+        step: 0.1,
+        joystick: 'invertY',
+      },
+      cameraInitialPositionForMobile: {
+        value: { x: 13.5, y: 6, z: 24 },
+        step: 0.1,
+        joystick: 'invertY',
+      },
+    })
+
   const environmentColor = useTexture('/textures/Environment_Color.png')
   const environmentOpaque = useTexture('/textures/Environment_Opaque.png')
   const remColor = useTexture('/textures/Rem_Color.png')
@@ -58,16 +72,16 @@ export default function Experience() {
 
   return (
     <>
-      <directionalLight castShadow position={[1, 2, 3]} intensity={1.8} />
-      <ambientLight intensity={0.6} />
+      <directionalLight castShadow position={[1, 2, 3]} intensity={2.2} />
+      <ambientLight intensity={1.2} />
 
       <OrbitControls />
 
-      <primitive object={particles.scene} position={[0, -0.5, 0]} />
+      <primitive object={particles.scene} position={[0, -1, 0]} />
 
       <primitive object={rem.scene} position={[0, -0.5, 0]} />
 
-      <Html>
+      <Html position={[0.5, 0.2, 0]}>
         <button onClick={() => playRemConfession()}>Rem Confession</button>
       </Html>
     </>

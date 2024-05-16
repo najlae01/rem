@@ -11,7 +11,7 @@ function App() {
         fov: 45,
         near: 0.1,
         far: 2000,
-        rotation: [0, -2, 5]
+        rotation: [0, -2, 5],
       }}
     >
       <Suspense fallback={null}>
