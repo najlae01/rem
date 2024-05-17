@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import './About.scss'
-import { FaReact } from 'react-icons/fa'
-import { TbBrandThreejs } from 'react-icons/tb'
 import { useEffect, useState } from 'react'
 import Skills from './Skills'
 

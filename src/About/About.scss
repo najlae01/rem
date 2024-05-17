@@ -708,7 +708,9 @@ textarea {
 
 @media (max-width: 900px) {
   .about-me {
+    min-width: 60vw;
     max-width: 85vw;
+    min-height: 60vh;
     max-height: 85vh;
   }
 
