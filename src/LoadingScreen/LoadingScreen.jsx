@@ -22,9 +22,11 @@ export const LoadingScreen = ({
           <h1 className='loadingScreen__title'>Waiting for Rem...🪄</h1>
         ) : (
           <>
-            <h1 className='loadingScreen__title'>Rem is ready. Ready to go?</h1>
+            <h1 className='loadingScreen__title'>
+              Rem is ready. May I introduce you my Hero?
+            </h1>
             <button
-              className='loadingScreen__button red'
+              className='loadingScreen__button blue'
               disabled={progress < 100}
               onClick={onStarted}
             >

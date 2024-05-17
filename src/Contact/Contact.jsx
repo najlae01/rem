@@ -66,106 +66,104 @@ export default function Contact({ music }) {
     // Delay the rendering of buttons for 5 seconds
     const timer = setTimeout(() => {
       // Add the CSS class to make the buttons visible
-      const buttons = document.querySelectorAll('.hide-icons')
-      buttons.forEach((button) => {
-        button.classList.remove('hide-icons')
-        button.classList.add('show-icons')
+      const elements = document.querySelectorAll('.hide-elements')
+      elements.forEach((element) => {
+        element.classList.remove('hide-elements')
+        element.classList.add('show-elements')
       })
     }, 800)
 
     // Clear the timer if the component unmounts
     return () => clearTimeout(timer)
   }, [])
+
   return (
     <div div className='main'>
-      <div className='contact-container '>
-        <button className='go-back contact' onClick={() => navigate('/')}>
+      <div className='contact-me'>
+        <button className='hide-elements go-back' onClick={() => navigate('/')}>
           <div className='nav-icon'>
             <div className='arrows'></div>
           </div>
         </button>
+        <div className='hide-elements header'>
+          <h1 className='header-text'>Get in touch</h1>
+          <img src='./images/emoji.png' />
+        </div>
 
-        <div className='contact-me'>
-          <div className='header'>
-            <h1 className='contact-header'>Get in touch</h1>
-            <img src='./images/emoji.png' />
-          </div>
-
-          <form ref={formRef} onSubmit={handleSubmit} className='contact-form'>
-            <label className=''>
-              <input
-                type='text'
-                name='name'
-                value={form.name}
-                onChange={handleChange}
-                placeholder='Name..'
-                className='contact-placeholder name'
-                required
-              />
-            </label>
-            <label className=''>
-              <input
-                type='email'
-                name='email'
-                value={form.email}
-                onChange={handleChange}
-                placeholder='Email..'
-                className='contact-placeholder'
-                required
-              />
-            </label>
-            <label className=''>
-              <textarea
-                rows={7}
-                name='message'
-                value={form.message}
-                onChange={handleChange}
-                placeholder='Message..'
-                className='contact-placeholder'
-                required
-              />
-            </label>
-            <div className='socials'>
-              <button type='submit' className='contact-button hoverable'>
-                {loading ? 'Sending...' : 'Send'}
-              </button>
-              <div className='hide-icons social-icons'>
-                <div className='social-icon'>
-                  <a
-                    href='https://www.linkedin.com/in/najlae-abarghache/'
-                    target='_blank'
-                    className='icon-link'
-                    rel='noopener noreferrer'
-                  >
-                    <FiLinkedin
-                      className='icon'
-                      style={{
-                        textDecoration: 'none',
-                        color: '#dcecfb',
-                      }}
-                    />
-                  </a>
-                </div>
-                <div className='social-icon'>
-                  <a
-                    className='icon-link'
-                    target='_blank'
-                    href='https://github.com/najlae01'
-                    rel='noopener noreferrer'
-                  >
-                    <FiGithub
-                      className='icon'
-                      style={{
-                        textDecoration: 'none',
-                        color: '#dcecfb',
-                      }}
-                    />
-                  </a>
-                </div>
+        <form ref={formRef} onSubmit={handleSubmit} className='contact-form'>
+          <label className=''>
+            <input
+              type='text'
+              name='name'
+              value={form.name}
+              onChange={handleChange}
+              placeholder='Name..'
+              className='hide-elements contact-placeholder'
+              required
+            />
+          </label>
+          <label className=''>
+            <input
+              type='email'
+              name='email'
+              value={form.email}
+              onChange={handleChange}
+              placeholder='Email..'
+              className='hide-elements contact-placeholder'
+              required
+            />
+          </label>
+          <label className=''>
+            <textarea
+              rows={7}
+              name='message'
+              value={form.message}
+              onChange={handleChange}
+              placeholder='Message..'
+              className='hide-elements contact-placeholder'
+              required
+            />
+          </label>
+          <div className='socials'>
+            <button type='submit' className='hide-elements'>
+              {loading ? 'Sending...' : 'Send'}
+            </button>
+            <div className='hide-elements social-icons'>
+              <div className='social-icon'>
+                <a
+                  href='https://www.linkedin.com/in/najlae-abarghache/'
+                  target='_blank'
+                  className='icon-link'
+                  rel='noopener noreferrer'
+                >
+                  <FiLinkedin
+                    className='icon'
+                    style={{
+                      textDecoration: 'none',
+                      color: '#dcecfb',
+                    }}
+                  />
+                </a>
+              </div>
+              <div className='social-icon'>
+                <a
+                  className='icon-link'
+                  target='_blank'
+                  href='https://github.com/najlae01'
+                  rel='noopener noreferrer'
+                >
+                  <FiGithub
+                    className='icon'
+                    style={{
+                      textDecoration: 'none',
+                      color: '#dcecfb',
+                    }}
+                  />
+                </a>
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   )

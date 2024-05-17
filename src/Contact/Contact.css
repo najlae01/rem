@@ -14,10 +14,22 @@
   font-family: 'Rajdhani', serif;
 }
 
+.contact-me {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  background-color: #4585c4;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+  box-shadow: 0 0 12px #bddbfa;
+  border: 1px solid #528fcc84;
+  border-radius: 3%;
+}
+
 .header {
-  margin-top: 0.5rem;
   display: flex;
   grid-column: center;
+  padding-left: 5rem;
 }
 
 img {
@@ -25,12 +37,15 @@ img {
   height: 110px;
 }
 
-.contact-header {
+.header-text {
   margin-top: 2.5rem;
 }
 
-.name {
-  margin-top: 1.3rem;
+.contact-form {
+  padding: 2rem 2.5rem 2rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
 }
 
 .contact-placeholder {
@@ -57,29 +72,6 @@ img {
   box-shadow: inset 2px 2px 0px 2px #bbddfe;
 }
 
-.contact-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.contact-me {
-  padding: 2rem 2.5rem 2rem 5rem;
-  max-width: fit-content;
-  background-color: #4585c4;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
-  box-shadow: 0 0 12px #bddbfa;
-  border: 1px solid #528fcc84;
-  border-radius: 3%;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
 @media (max-width: 500px) {
   .contact-placeholder {
     min-width: 10rem;
@@ -93,11 +85,6 @@ img {
   .contact-button {
     margin-right: 2rem;
   }
-}
-
-.socials {
-  display: flex;
-  flex-direction: row;
 }
 
 .social-icons {
@@ -114,26 +101,10 @@ img {
   background: transparent;
   border: none;
   box-shadow: none;
-  text-align: center;
 }
 
-.icon {
-  font-size: 1.7rem;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.icon-link:hover .icon {
-  cursor: pointer;
-  transform: scale(1.2);
-}
-
-.hide-icons {
-  opacity: 0;
-}
-
-.show-icons {
-  opacity: 1;
-  transition: opacity 1.5s ease-in-out;
+.icon-link > .icon {
+  margin-bottom: 0rem;
 }
 
 /* Media query for mobile styles */
@@ -141,34 +112,4 @@ img {
   .social-icon {
     margin-left: 0.4rem;
   }
-}
-
-button {
-  box-shadow: inset 0px 1px 0px 0px #dcecfb;
-  background: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
-  background-color: #bddbfa;
-  border-radius: 6px;
-  border: 1px solid #84bbf3;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 6px 24px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #528ecc;
-}
-button:hover {
-  background: linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
-  background-color: #80b5ea;
-}
-
-.go-back.contact {
-  left: 37.7% !important;
-  top: 13.7% !important;
-}
-
-.go-back:hover {
-  box-shadow: 0px 0px 15px 5px #dcecfb;
 }

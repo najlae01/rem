@@ -1,31 +1,45 @@
-.about-container {
+.about-me {
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-me {
-  padding: 2rem 0rem;
+  flex-direction: column;
   max-width: 60vw;
+  min-width: 55vh;
+  min-height: 60vh;
+  max-height: 70vh;
+  padding-right: 2rem;
+
   background-color: #4585c4;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
   box-shadow: 0 0 12px #bddbfa;
   border: 1px solid #528fcc84;
-  border-radius: 2%;
+  padding-bottom: 2rem;
+  border-radius: 3% 0% 0% 3%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-user-select: none;
+  user-select: none;
+  color: #ffffff;
 }
 
-.header-text {
+.about-me::-webkit-scrollbar {
+  display: none;
+  /**-ms-overflow-style: none;
+  scrollbar-width: thin !important;
+  scrollbar-color: #4585c4 !important;
+  background-color: #4585c4 !important;**/
+}
+
+.about-card {
+  margin-left: 4.5rem;
+}
+
+.about-card > .header-text {
   text-align: center;
+  margin-top: 0.7rem;
 }
 
-.go-back.about {
-  left: 21.3% !important;
-  top: 19.5% !important;
-}
-
-.go-back:hover {
-  box-shadow: 0px 0px 15px 5px #e4f8e4;
+.category-title {
+  font-size: 1.3rem;
 }
 
 input,
@@ -435,7 +449,7 @@ select {
 }
 
 textarea {
-  max-width: 470px;
+  max-width: 100%;
 }
 
 .button-glow {
@@ -658,50 +672,55 @@ textarea {
   }
 }
 
-.skills-header {
-  text-align: center;
-}
-
-.skills {
-  display: flex;
-  flex-direction: row;
-  width: fit-content;
-  justify-content: space-between;
-  align-items: flex-end;
-  text-align: center;
-}
-
 .skill-icon {
-  margin-left: 1.2rem;
+  margin-right: 1.2rem;
   border-radius: 50%;
   background: transparent;
   border: none;
   box-shadow: none;
 }
 
-.icon {
-  color: #fff;
-  font-size: 1.7rem;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.icon-link:hover .icon {
-  cursor: pointer;
-  transform: scale(1.2);
-}
-
-.hide-icons {
-  opacity: 0;
-}
-
-.show-icons {
-  opacity: 1;
-  transition: opacity 1.5s ease-in-out;
-}
-
 /* Media query for mobile styles */
 @media (max-width: 600px) {
-  .social-icon {
-    margin-left: 0.4rem;
+  .skill-icon {
+    margin-right: 0.7rem;
+    margin-bottom: 0.3rem;
+  }
+
+  label {
+    font-size: 0.95rem;
+  }
+
+  .field,
+  textarea,
+  input,
+  select {
+    font-size: 0.75rem;
+  }
+
+  .go-back {
+    text-align: left;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    transform: scale(0.75);
+  }
+}
+
+@media (max-width: 900px) {
+  .about-me {
+    max-width: 85vw;
+    max-height: 85vh;
+  }
+
+  .about-card > .header-text {
+    font-size: 1.55rem;
+  }
+
+  .about-card {
+    margin-left: 3rem;
+  }
+
+  .category-title {
+    font-size: 1rem;
   }
 }

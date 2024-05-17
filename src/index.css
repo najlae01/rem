@@ -85,9 +85,9 @@ button.green:hover {
 /** go back arrow**/
 
 .go-back {
-  position: fixed;
-  top: 17%;
-  left: 37.7%;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  width: 0px;
   border-radius: 50%;
   background: transparent;
   border: none;
@@ -127,4 +127,69 @@ button.green:hover {
 .nav-icon:after {
   transform: translateY(-3px) translateX(-2px) rotate(-135deg);
   width: 17px;
+}
+
+button {
+  box-shadow: inset 0px 1px 0px 0px #dcecfb;
+  background: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+  background-color: #bddbfa;
+  border-radius: 6px;
+  border: 1px solid #84bbf3;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #528ecc;
+}
+
+button:hover {
+  background: linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+  background-color: #80b5ea;
+}
+
+.go-back:hover {
+  box-shadow: 0px 0px 15px 5px #dcecfb;
+}
+
+/** Icons (used in skills and social contact)**/
+.skills,
+.socials {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.icon {
+  margin-bottom: 0.6rem;
+  color: #fff;
+  font-size: 1.7rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.icon-link:hover .icon {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.hide-elements {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.show-elements {
+  pointer-events: all;
+  opacity: 1;
+  transition: opacity 1.5s ease-in-out;
+}
+
+/* Media query for mobile styles */
+@media (max-width: 600px) {
+  .icon {
+    font-size: 1.1rem;
+  }
 }
