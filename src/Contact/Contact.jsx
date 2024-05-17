@@ -115,7 +115,7 @@ export default function Contact({ music }) {
           </label>
           <label className=''>
             <textarea
-              rows={7}
+              rows={5}
               name='message'
               value={form.message}
               onChange={handleChange}
