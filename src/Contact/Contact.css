@@ -70,9 +70,7 @@ img {
   background-color: #4585c4;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
   box-shadow: 0 0 12px #bddbfa;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #528fcc84;
+  border: 1px solid #528fcc84;
   border-radius: 3%;
 }
 

@@ -1,19 +1,3 @@
-.main {
-  background: linear-gradient(to bottom, #b2ffb0 5%, #3ca639 100%) !important;
-  background-color: #3ca639;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 8s;
-  z-index: 1;
-  font-family: 'Rajdhani', serif;
-}
-
 .about-container {
   position: relative;
   display: flex;
@@ -24,10 +8,11 @@
 .about-me {
   padding: 2rem 0rem;
   max-width: 60vw;
-  background-color: #3ca639;
+  background-color: #4585c4;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
-  box-shadow: 0 0 12px #c4ffc4;
-  border: 8px ridge #3da639a3;
+  box-shadow: 0 0 12px #bddbfa;
+  border: 1px solid #528fcc84;
+  border-radius: 2%;
 }
 
 .header-text {
@@ -36,7 +21,7 @@
 
 .go-back.about {
   left: 21.3% !important;
-  top: 19% !important;
+  top: 19.5% !important;
 }
 
 .go-back:hover {
