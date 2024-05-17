@@ -64,7 +64,7 @@ export default function About({ music }) {
                     readOnly
                     disabled
                     type='text'
-                    value='Tecna Space'
+                    value='NaN'
                     pattern='\w+'
                   />
                 </div>
@@ -82,15 +82,15 @@ export default function About({ music }) {
               <div className='row w-100'>
                 <div className='field w-33 pr-1'>
                   <label className='glow text'>Sex</label>
-                  <input readOnly disabled value='Female' />
+                  <input readOnly disabled value='NaN' />
                 </div>
                 <div className='field w-33 pr-1'>
                   <label className='glow text'>Origin</label>
-                  <input readOnly disabled value='USA' />
+                  <input readOnly disabled value='NaN' />
                 </div>
                 <div className='field w-33' data-unit='Yrs'>
                   <label className='glow text'>Age</label>
-                  <input readOnly disabled value='23' type='number' />
+                  <input readOnly disabled value='00' type='number' />
                 </div>
               </div>
             </div>
