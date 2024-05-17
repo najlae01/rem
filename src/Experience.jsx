@@ -1,17 +1,6 @@
-import {
-  Html,
-  useGLTF,
-  PresentationControls,
-  Text,
-  Text3D,
-  useTexture,
-  OrbitControls,
-  Float,
-} from '@react-three/drei'
+import { Html, OrbitControls, Float } from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
-import { useEffect, useRef, useState } from 'react'
-import { useSpring } from 'react-spring'
 import { useControls } from 'leva'
 import { useNavigate } from 'react-router-dom'
 

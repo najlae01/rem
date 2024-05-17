@@ -2,8 +2,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 60vw;
-  min-width: 55vh;
+  max-width: 70vw;
+  min-width: 60vh;
   min-height: 60vh;
   max-height: 70vh;
   padding-right: 2rem;
@@ -681,34 +681,34 @@ textarea {
 }
 
 /* Media query for mobile styles */
-@media (max-width: 600px) {
-  .skill-icon {
-    margin-right: 0.7rem;
-    margin-bottom: 0.3rem;
+@media (max-width: 650px) {
+  .about-me {
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0%;
+    border: none;
   }
 
-  label {
-    font-size: 0.95rem;
+  .skill-icon > .icon-link > .icon {
+    font-size: 1.7rem;
   }
 
-  .field,
-  textarea,
-  input,
-  select {
-    font-size: 0.75rem;
+  .about-card > .header-text {
+    font-size: 2.2rem;
+  }
+
+  .about-card {
+    margin-left: 4rem;
+  }
+
+  .category-title {
+    font-size: 1.4rem;
   }
 }
 
 @media (max-width: 900px) {
-  .about-me {
-    min-width: 50vw;
-    max-width: 70vw;
-    min-height: 50vh;
-    max-height: 70vh;
-  }
-
   .about-card > .header-text {
-    font-size: 1.55rem;
+    font-size: 1.7rem;
   }
 
   .about-card {
@@ -716,6 +716,6 @@ textarea {
   }
 
   .category-title {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }

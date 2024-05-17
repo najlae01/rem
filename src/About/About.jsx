@@ -8,11 +8,14 @@ export default function About({ music }) {
 
   const [isMobile, setIsMobile] = useState(false)
 
+  const [isTablet, setIsTablet] = useState(false)
+
   const [isSmallerDesktopScreen, setIsSmallerDesktopScreen] = useState(false)
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 650)
+      setIsMobile(window.innerWidth <= 450)
+      setIsTablet(window.innerWidth <= 900 && window.innerWidth > 650)
       setIsSmallerDesktopScreen(window.innerWidth <= 1400)
     }
 
@@ -50,9 +53,9 @@ export default function About({ music }) {
         </button>
         <div className='about-card'>
           <h1 className='hide-elements header-text'>Meet my amazing hero</h1>
-          <div className='flex row w-100'>
+          <div className='hide-elements flex row w-100'>
             <div
-              className={`hide-elements column ${
+              className={`column ${
                 isSmallerDesktopScreen ? 'w-100' : 'w-46 pr-2'
               } `}
             >
@@ -95,7 +98,7 @@ export default function About({ music }) {
               </div>
             </div>
             {!isSmallerDesktopScreen && (
-              <div className='hide-elements column w-49'>
+              <div className='column w-49'>
                 <h2 className='category-title'>BIOGRAPHY</h2>
                 <div className='flex column w-100'>
                   <label className='glow text'>Master's Journey</label>
@@ -113,7 +116,7 @@ export default function About({ music }) {
           </div>
           {isSmallerDesktopScreen && (
             <div className='flex row w-100'>
-              <div className='hide-elements column w-100'>
+              <div className='column w-100'>
                 <h2 className='category-title mt-2'>BIOGRAPHY</h2>
                 <div className='flex column w-100'>
                   <label className='glow text'>Master's Journey</label>
@@ -122,7 +125,7 @@ export default function About({ music }) {
                     disabled
                     readOnly
                     name='story'
-                    rows={isMobile ? 8 : 4}
+                    rows={isMobile ? 9 : 5}
                   ></textarea>
                 </div>
               </div>
