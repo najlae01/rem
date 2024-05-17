@@ -1,3 +1,19 @@
+.main {
+  background: linear-gradient(to bottom, #d4e5f6 5%, #4c8ac8 100%) !important;
+  background-color: #4c8ac8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 8s;
+  z-index: 1;
+  font-family: 'Rajdhani', serif;
+}
+
 .header {
   margin-top: 0.5rem;
   display: flex;
@@ -46,7 +62,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 15%;
 }
 
 .contact-me {
@@ -151,50 +166,11 @@ button:hover {
   background-color: #80b5ea;
 }
 
-/** nav arrow**/
-
-.go-back {
-  position: fixed;
-  top: 17%;
-  left: 37.7%;
-  border-radius: 50%;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  text-align: center;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+.go-back.contact {
+  left: 37.7% !important;
+  top: 13.7% !important;
 }
 
 .go-back:hover {
-  background: transparent;
-  transform: scale(0.7);
   box-shadow: 0px 0px 15px 5px #dcecfb;
-}
-
-.nav-icon {
-  text-align: center;
-  width: 0px;
-  cursor: pointer;
-}
-
-.nav-icon:before {
-  transform: translateY(3px) translateX(-2px) rotate(135deg);
-  width: 17px;
-}
-
-.nav-icon:after,
-.nav-icon:before,
-.nav-icon div {
-  background-color: #fff;
-  border-radius: 3px;
-  content: '';
-  display: block;
-  height: 2px;
-  margin: 7px -9px;
-  transition: all 0.2s ease-in-out;
-}
-
-.nav-icon:after {
-  transform: translateY(-3px) translateX(-2px) rotate(-135deg);
-  width: 17px;
 }

@@ -1,12 +1,10 @@
-import { a } from '@react-spring/three'
-import { Html, Float } from '@react-three/drei'
 import './Contact.css'
 import { FiLinkedin, FiGithub } from 'react-icons/fi'
 import emailjs from '@emailjs/browser'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function Contact({}) {
+export default function Contact({ music }) {
   const navigate = useNavigate()
   const formRef = useRef()
   const [form, setForm] = useState({
@@ -79,9 +77,9 @@ export default function Contact({}) {
     return () => clearTimeout(timer)
   }, [])
   return (
-    <>
+    <div div className='main'>
       <div className='contact-container '>
-        <button className='go-back' onClick={() => navigate('/')}>
+        <button className='go-back contact' onClick={() => navigate('/')}>
           <div className='nav-icon'>
             <div className='arrows'></div>
           </div>
@@ -169,6 +167,6 @@ export default function Contact({}) {
           </form>
         </div>
       </div>
-    </>
+    </div>
   )
 }

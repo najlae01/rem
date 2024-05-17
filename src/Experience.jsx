@@ -85,12 +85,12 @@ export default function Experience({ rem, particles, music }) {
 
         <OrbitControls />
 
-        <primitive object={particles.scene} position={[0, -1, 0]} />
+        <primitive object={particles.scene} position={[0, -1.8, 0]} />
 
-        <primitive object={rem.scene} position={[0, -0.5, 0]} />
+        <primitive object={rem.scene} position={[0, -1.7, 0]} />
 
         <Float floatIntensity={1.5}>
-          <Html position={[0.5, 0.2, 0]}>
+          <Html position={[0.5, -0.8, 0]}>
             <button className='red' onClick={() => playRemConfession()}>
               REM CONFESSION
             </button>
@@ -98,7 +98,7 @@ export default function Experience({ rem, particles, music }) {
         </Float>
 
         <Float floatIntensity={1.5}>
-          <Html position={[-1, 0.2, 0]}>
+          <Html position={[-1.2, -0.7, 0]}>
             <button className='blue' onClick={() => navigate('/contact')}>
               CONTACT
             </button>
@@ -106,7 +106,7 @@ export default function Experience({ rem, particles, music }) {
         </Float>
 
         <Float floatIntensity={1.5}>
-          <Html position={[0, -0.6, 0]}>
+          <Html position={[0, 0, 0]}>
             <button className='green' onClick={() => navigate('/about')}>
               ABOUT
             </button>

@@ -4,7 +4,7 @@ import './App.css'
 import Experience from './Experience'
 import { Suspense, useEffect, useState } from 'react'
 import { useGLTF, useProgress } from '@react-three/drei'
-import { LoadingScreen } from './LoadingScreen'
+import { LoadingScreen } from './LoadingScreen/LoadingScreen'
 import Contact from './Contact/Contact'
 import Projects from './Projects/Projects'
 import About from './About/About'
@@ -79,24 +79,9 @@ function App() {
           }
         />
 
-        <Route
-          path='/about'
-          element={
-            <Canvas
-              shadows
-              camera={{
-                fov: 75,
-                near: 0.1,
-                far: 2000,
-                position: [0, 0, 4],
-              }}
-            >
-              <About />
-            </Canvas>
-          }
-        />
-        <Route path='/projects' element={<Projects />} />
-        <Route path='/contact' element={<Contact />} />
+        <Route path='/about' element={<About music={music} />} />
+        <Route path='/projects' element={<Projects music={music} />} />
+        <Route path='/contact' element={<Contact music={music} />} />
       </Routes>
     </BrowserRouter>
   )

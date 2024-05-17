@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function Projects() {
+export default function Projects({ music }) {
   const navigate = useNavigate()
 
   return (
