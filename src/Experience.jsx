@@ -29,12 +29,12 @@ export default function Experience({ rem, particles, music }) {
   audio.loop = false
   audio.volume = 0.3
 
-  let ParticlesMixer = new THREE.AnimationMixer(particles.scene)
-  particles.animations.forEach((clip) => {
-    const action = ParticlesMixer.clipAction(clip)
-    action.setEffectiveTimeScale(0.2)
-    action.play()
-  })
+  // let ParticlesMixer = new THREE.AnimationMixer(particles.scene)
+  // particles.animations.forEach((clip) => {
+  //   const action = ParticlesMixer.clipAction(clip)
+  //   action.setEffectiveTimeScale(0.2)
+  //   action.play()
+  // })
 
   const navigate = useNavigate()
 
@@ -42,7 +42,7 @@ export default function Experience({ rem, particles, music }) {
 
   useFrame((state, delta) => {
     RemMixer.update(delta)
-    ParticlesMixer.update(delta)
+    //ParticlesMixer.update(delta)
 
     if (audio.paused && (!animation || !animation.isRunning())) {
       music.play()
@@ -83,8 +83,6 @@ export default function Experience({ rem, particles, music }) {
         config={{ mass: 2, tension: 400 }}
         snap={{ mass: 2.5, tension: 400 }}
       >
-        <primitive object={particles.scene} position={[2.4, 0.2, 5.35]} />
-
         <primitive
           object={rem.scene}
           position={[2.4, 0.35, 5.35]}
