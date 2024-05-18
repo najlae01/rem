@@ -93,30 +93,6 @@ export default function Experience({ rem, particles, environment, music }) {
           position={[2.4, 0.35, 5.35]}
           rotation={[-0.3, 0.4, 0.135]}
         />
-
-        <Float floatIntensity={1.5}>
-          <Html position={[0.5, -1.5, 0]}>
-            <button className='red' onClick={() => playRemConfession()}>
-              REM CONFESSION
-            </button>
-          </Html>
-        </Float>
-
-        <Float floatIntensity={1.5}>
-          <Html position={[-3.5, -1.5, 0]}>
-            <button className='blue' onClick={() => navigate('/contact')}>
-              CONTACT
-            </button>
-          </Html>
-        </Float>
-
-        <Float floatIntensity={1.5}>
-          <Html position={[0, 0.2, 0]}>
-            <button className='green' onClick={() => navigate('/about')}>
-              ABOUT
-            </button>
-          </Html>
-        </Float>
       </PresentationControls>
     </>
   )
