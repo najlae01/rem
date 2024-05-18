@@ -35,7 +35,6 @@
 
 .about-card > .header-text {
   text-align: center;
-  margin-top: 0.7rem;
 }
 
 .category-title {
@@ -687,7 +686,11 @@ textarea {
     max-height: 100vh;
     border-radius: 0%;
     border: none;
-    padding-right: 2rem;
+  }
+
+  .go-back {
+    margin-left: 1rem;
+    margin-top: 1rem;
   }
 
   .skill-icon > .icon-link > .icon {
@@ -699,7 +702,7 @@ textarea {
   }
 
   .about-card {
-    margin-left: 4rem;
+    padding: 1rem !important;
   }
 
   .category-title {
