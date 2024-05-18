@@ -686,11 +686,7 @@ textarea {
     max-height: 100vh;
     border-radius: 0%;
     border: none;
-  }
-
-  .go-back {
-    margin-left: 1rem;
-    margin-top: 1rem;
+    padding: 1.5rem !important;
   }
 
   .skill-icon > .icon-link > .icon {
@@ -702,7 +698,8 @@ textarea {
   }
 
   .about-card {
-    padding: 1rem !important;
+    padding: 0rem 2rem !important;
+    margin-left: 2rem !important;
   }
 
   .category-title {
