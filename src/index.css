@@ -195,8 +195,8 @@ button:hover {
 
   .go-back {
     text-align: left;
-    margin-left: 0.4rem;
-    margin-top: 0.5rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
     transform: scale(0.75);
   }
 }
