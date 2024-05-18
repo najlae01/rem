@@ -22,6 +22,8 @@ function App() {
 
   const rem = useGLTF('./models/rem.glb')
 
+  const environment = useGLTF('./models/environment.glb')
+
   const { progress } = useProgress()
 
   useEffect(() => {
@@ -71,7 +73,12 @@ function App() {
                   }}
                 >
                   <Suspense fallback={null}>
-                    <Experience rem={rem} particles={particles} music={music} />
+                    <Experience
+                      rem={rem}
+                      particles={particles}
+                      environment={environment}
+                      music={music}
+                    />
                   </Suspense>
                 </Canvas>
               )}

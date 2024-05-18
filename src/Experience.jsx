@@ -9,7 +9,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { useControls } from 'leva'
 import { useNavigate } from 'react-router-dom'
 
-export default function Experience({ rem, particles, music }) {
+export default function Experience({ rem, particles, environment, music }) {
   const { cameraInitialPositionForMobile, cameraInitialPositionForDesktop } =
     useControls('Camera Initial Position', {
       cameraInitialPositionForDesktop: {
@@ -86,7 +86,12 @@ export default function Experience({ rem, particles, music }) {
         <primitive
           object={rem.scene}
           position={[2.4, 0.35, 5.35]}
-          rotation={[-0.3, 0.4, 0.12]}
+          rotation={[-0.3, 0.4, 0.135]}
+        />
+        <primitive
+          object={environment.scene}
+          position={[2.4, 0.35, 5.35]}
+          rotation={[-0.3, 0.4, 0.135]}
         />
 
         <Float floatIntensity={1.5}>
