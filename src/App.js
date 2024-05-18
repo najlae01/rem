@@ -64,10 +64,10 @@ function App() {
                 <Canvas
                   shadows
                   camera={{
-                    fov: 45,
+                    fov: 35,
                     near: 0.1,
                     far: 2000,
-                    rotation: [0, -2, 5],
+                    position: [5.5, 4, 11],
                   }}
                 >
                   <Suspense fallback={null}>

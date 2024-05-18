@@ -1,4 +1,9 @@
-import { Html, OrbitControls, Float } from '@react-three/drei'
+import {
+  Html,
+  OrbitControls,
+  Float,
+  PresentationControls,
+} from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useControls } from 'leva'
@@ -68,18 +73,26 @@ export default function Experience({ rem, particles, music }) {
 
   return (
     <>
-      <>
-        <directionalLight castShadow position={[1, 2, 3]} intensity={2.2} />
-        <ambientLight intensity={1.2} />
+      <directionalLight castShadow position={[1, 2, 3]} intensity={2.2} />
+      <ambientLight intensity={1.2} />
 
-        <OrbitControls />
+      <PresentationControls
+        global
+        polar={[-0.25, 0.3]}
+        azimuth={[-1, 1]}
+        config={{ mass: 2, tension: 400 }}
+        snap={{ mass: 2.5, tension: 400 }}
+      >
+        <primitive object={particles.scene} position={[2.4, 0.2, 5.35]} />
 
-        <primitive object={particles.scene} position={[0, -1.8, 0]} />
-
-        <primitive object={rem.scene} position={[0, -1.7, 0]} />
+        <primitive
+          object={rem.scene}
+          position={[2.4, 0.35, 5.35]}
+          rotation={[-0.3, 0.4, 0.12]}
+        />
 
         <Float floatIntensity={1.5}>
-          <Html position={[0.5, -0.8, 0]}>
+          <Html position={[0.5, -1.5, 0]}>
             <button className='red' onClick={() => playRemConfession()}>
               REM CONFESSION
             </button>
@@ -87,7 +100,7 @@ export default function Experience({ rem, particles, music }) {
         </Float>
 
         <Float floatIntensity={1.5}>
-          <Html position={[-1.2, -0.7, 0]}>
+          <Html position={[-3.5, -1.5, 0]}>
             <button className='blue' onClick={() => navigate('/contact')}>
               CONTACT
             </button>
@@ -95,13 +108,13 @@ export default function Experience({ rem, particles, music }) {
         </Float>
 
         <Float floatIntensity={1.5}>
-          <Html position={[0, 0, 0]}>
+          <Html position={[0, 0.2, 0]}>
             <button className='green' onClick={() => navigate('/about')}>
               ABOUT
             </button>
           </Html>
         </Float>
-      </>
+      </PresentationControls>
     </>
   )
 }

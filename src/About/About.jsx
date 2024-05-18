@@ -121,7 +121,7 @@ export default function About({ music }) {
                 <div className='flex column w-100'>
                   <label className='glow text'>Master's Journey</label>
                   <textarea
-                    defaultValue='At 17, Tecna discovered programming. She went to college, became a software engineer, and later a creative developer after learning 3D and Three.js. Loving games, she learned game programming and using Unreal Engine.'
+                    defaultValue='At 17, she discovered programming. She went to college, became a software engineer, and later a creative developer after learning 3D and Three.js. Loving games, she learned game programming and using Unreal Engine.'
                     disabled
                     readOnly
                     name='story'
