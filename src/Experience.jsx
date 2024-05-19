@@ -10,6 +10,7 @@ import * as THREE from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useControls } from 'leva'
 import { useNavigate } from 'react-router-dom'
+import { a, useSpring } from '@react-spring/three'
 import { extend } from '@react-three/fiber'
 import { useEffect, useRef } from 'react'
 
@@ -21,11 +22,6 @@ export default function Experience({
   music,
 }) {
   const environmentCombined = useTexture('/textures/Environment_Combined.png')
-
-  const remColor = useTexture('/textures/Rem_Color.png')
-  const remShadedColor = useTexture('/textures/Rem_ColorShaded.png')
-  const remOpaque = useTexture('/textures/Rem_Opaque.png')
-  const remCombined = useTexture('/textures/Rem_Combined.png')
 
   let RemMixer = new THREE.AnimationMixer(rem.scene)
   let audio = new Audio('./audio/ChibiRems-Confession.mp3')
@@ -76,40 +72,47 @@ export default function Experience({
     }
   }
 
+  const remCombined = useTexture('/textures/Rem_ShadedCombined.png')
+  remCombined.flipY = false
+  remCombined.roughness = 1
+  remCombined.metalness = 1
+  remCombined.colorSpace = THREE.SRGBColorSpace
+  const remMaterial = new THREE.MeshBasicMaterial({
+    map: remCombined,
+    side: THREE.DoubleSide,
+    transparent: true,
+    alphaTest: 0.5,
+    toneMapped: false,
+  })
+
+  remMaterial.needsUpdate = true
+
+  const remMesh = rem.scene
+  remMesh.children[0].children[0].material = remMaterial
+
   return (
     <>
-      <directionalLight castShadow position={[1, 2, 3]} intensity={2.2} />
-      <ambientLight intensity={1.2} />
-
-      <OrbitControls />
+      <OrbitControls
+        minAzimuthAngle={-1}
+        maxAzimuthAngle={1}
+        minPolarAngle={-0.25}
+        maxPolarAngle={1.29}
+      />
       <primitive
         object={particles.scene}
         position={[2.4, 0.15, 5.35]}
         rotation={[-0.3, 0.4, 0.135]}
       />
+
       <primitive
-        object={rem.scene}
-        position={[2.4, 0.35, 5.35]}
+        object={remMesh}
+        position={[2.4, 0.55, 5.35]}
         rotation={[-0.3, 0.4, 0.135]}
       />
 
-      {/* <mesh
-        geometry={rem.nodes.GME_Outline.geometry}
-        position={[2.4, 0.35, 5.35]}
-        rotation={[-0.3, 0.4, 0.135]}
-      >
-        <meshBasicMaterial
-          map={remCombined}
-          map-flipY={false}
-          transparent
-          alphaTest={0.1}
-          roughness={1}
-          metalness={0.7}
-        />
-      </mesh> */}
       <mesh
         geometry={floor.nodes.Bg_Floor.geometry}
-        position={[2.4, 0.35, 5.35]}
+        position={[2.4, 0.55, 5.35]}
         rotation={[-0.3, 0.4, 0.135]}
       >
         <meshBasicMaterial
@@ -124,7 +127,7 @@ export default function Experience({
       </mesh>
       <mesh
         geometry={environment.nodes.Pillar_Wall.geometry}
-        position={[2.4, 0.355, 5.35]}
+        position={[2.4, 0.555, 5.35]}
         rotation={[-0.3, 0.4, 0.135]}
       >
         <meshBasicMaterial
