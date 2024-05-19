@@ -20,6 +20,7 @@ export default function Experience({
   environment,
   floor,
   music,
+  isMobile,
 }) {
   const environmentCombined = useTexture('/textures/Environment_Combined.png')
 
@@ -160,7 +161,7 @@ export default function Experience({
       </Float>
 
       <Float floatIntensity={1.5}>
-        <Html position={[-4.5, -1.5, 0]}>
+        <Html position={isMobile ? [-2.5, -1.5, 0] : [-4.5, -1.5, 0]}>
           <button className='blue' onClick={() => navigate('/contact')}>
             CONTACT
           </button>

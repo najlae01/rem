@@ -17,6 +17,20 @@ music.volume = 0.2
 function App() {
   const [modelLoaded, setModelLoaded] = useState(false)
   const [start, setStart] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 450)
+    }
+
+    handleResize()
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   const particles = useGLTF('./models/particles.glb')
 
@@ -81,6 +95,7 @@ function App() {
                       environment={environment}
                       music={music}
                       floor={floor}
+                      isMobile={isMobile}
                     />
                   </Suspense>
                 </Canvas>
@@ -89,7 +104,10 @@ function App() {
           }
         />
 
-        <Route path='/about' element={<About music={music} />} />
+        <Route
+          path='/about'
+          element={<About music={music} isMobile={isMobile} />}
+        />
         <Route path='/projects' element={<Projects music={music} />} />
         <Route path='/contact' element={<Contact music={music} />} />
       </Routes>

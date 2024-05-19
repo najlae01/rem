@@ -3,10 +3,8 @@ import './About.scss'
 import { useEffect, useState } from 'react'
 import Skills from './Skills'
 
-export default function About({ music }) {
+export default function About({ music, isMobile }) {
   const navigate = useNavigate()
-
-  const [isMobile, setIsMobile] = useState(false)
 
   const [isTablet, setIsTablet] = useState(false)
 
@@ -14,7 +12,6 @@ export default function About({ music }) {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 450)
       setIsTablet(window.innerWidth <= 900 && window.innerWidth > 650)
       setIsSmallerDesktopScreen(window.innerWidth <= 1400)
     }
