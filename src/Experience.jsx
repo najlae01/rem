@@ -3,11 +3,14 @@ import {
   OrbitControls,
   Float,
   PresentationControls,
+  useTexture,
+  shaderMaterial,
 } from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useControls } from 'leva'
 import { useNavigate } from 'react-router-dom'
+import { extend } from '@react-three/fiber'
 
 export default function Experience({ rem, particles, environment, music }) {
   const { cameraInitialPositionForMobile, cameraInitialPositionForDesktop } =
@@ -24,10 +27,18 @@ export default function Experience({ rem, particles, environment, music }) {
       },
     })
 
+  const environmentCombined = useTexture('/textures/Environment_Combined.png')
+
+  const remColor = useTexture('/textures/Rem_Color.png')
+  const remShadedColor = useTexture('/textures/Rem_ColorShaded.png')
+  const remOpaque = useTexture('/textures/Rem_Opaque.png')
+
   let RemMixer = new THREE.AnimationMixer(rem.scene)
   let audio = new Audio('./audio/ChibiRems-Confession.mp3')
   audio.loop = false
   audio.volume = 0.3
+
+  console.log(rem)
 
   // let ParticlesMixer = new THREE.AnimationMixer(particles.scene)
   // particles.animations.forEach((clip) => {
@@ -88,11 +99,45 @@ export default function Experience({ rem, particles, environment, music }) {
           position={[2.4, 0.35, 5.35]}
           rotation={[-0.3, 0.4, 0.135]}
         />
-        <primitive
-          object={environment.scene}
+        <mesh
+          geometry={environment.nodes.Plane033.geometry}
           position={[2.4, 0.35, 5.35]}
           rotation={[-0.3, 0.4, 0.135]}
-        />
+        >
+          <meshBasicMaterial
+            map={environmentCombined}
+            side={THREE.DoubleSide}
+            map-flipY={false}
+            transparent
+            alphaTest={0.1}
+          />
+        </mesh>
+        <mesh
+          geometry={environment.nodes.Plane033_1.geometry}
+          position={[2.4, 0.35, 5.35]}
+          rotation={[-0.3, 0.4, 0.135]}
+        >
+          <meshBasicMaterial
+            map={environmentCombined}
+            side={THREE.DoubleSide}
+            map-flipY={false}
+            transparent
+            alphaTest={0.9}
+          />
+        </mesh>
+        <mesh
+          geometry={environment.nodes.Plane033_2.geometry}
+          position={[2.4, 0.35, 5.35]}
+          rotation={[-0.3, 0.4, 0.135]}
+        >
+          <meshBasicMaterial
+            map={environmentCombined}
+            side={THREE.DoubleSide}
+            map-flipY={false}
+            transparent
+            alphaTest={0.9}
+          />
+        </mesh>
       </PresentationControls>
     </>
   )
