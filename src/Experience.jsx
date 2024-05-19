@@ -12,7 +12,13 @@ import { useControls } from 'leva'
 import { useNavigate } from 'react-router-dom'
 import { extend } from '@react-three/fiber'
 
-export default function Experience({ rem, particles, environment, music }) {
+export default function Experience({
+  rem,
+  particles,
+  environment,
+  floor,
+  music,
+}) {
   const { cameraInitialPositionForMobile, cameraInitialPositionForDesktop } =
     useControls('Camera Initial Position', {
       cameraInitialPositionForDesktop: {
@@ -38,7 +44,7 @@ export default function Experience({ rem, particles, environment, music }) {
   audio.loop = false
   audio.volume = 0.3
 
-  console.log(rem)
+  console.log(environment)
 
   // let ParticlesMixer = new THREE.AnimationMixer(particles.scene)
   // particles.animations.forEach((clip) => {
@@ -100,7 +106,7 @@ export default function Experience({ rem, particles, environment, music }) {
           rotation={[-0.3, 0.4, 0.135]}
         />
         <mesh
-          geometry={environment.nodes.Plane033.geometry}
+          geometry={floor.nodes.Bg_Floor.geometry}
           position={[2.4, 0.35, 5.35]}
           rotation={[-0.3, 0.4, 0.135]}
         >
@@ -113,8 +119,8 @@ export default function Experience({ rem, particles, environment, music }) {
           />
         </mesh>
         <mesh
-          geometry={environment.nodes.Plane033_1.geometry}
-          position={[2.4, 0.35, 5.35]}
+          geometry={environment.nodes.Pillar_Wall.geometry}
+          position={[2.4, 0.355, 5.35]}
           rotation={[-0.3, 0.4, 0.135]}
         >
           <meshBasicMaterial
@@ -125,19 +131,29 @@ export default function Experience({ rem, particles, environment, music }) {
             alphaTest={0.9}
           />
         </mesh>
-        <mesh
-          geometry={environment.nodes.Plane033_2.geometry}
-          position={[2.4, 0.35, 5.35]}
-          rotation={[-0.3, 0.4, 0.135]}
-        >
-          <meshBasicMaterial
-            map={environmentCombined}
-            side={THREE.DoubleSide}
-            map-flipY={false}
-            transparent
-            alphaTest={0.9}
-          />
-        </mesh>
+        <Float floatIntensity={1.5}>
+          <Html position={[0.5, -1.5, 0]}>
+            <button className='red' onClick={() => playRemConfession()}>
+              REM CONFESSION
+            </button>
+          </Html>
+        </Float>
+
+        <Float floatIntensity={1.5}>
+          <Html position={[-3.5, -1.5, 0]}>
+            <button className='blue' onClick={() => navigate('/contact')}>
+              CONTACT
+            </button>
+          </Html>
+        </Float>
+
+        <Float floatIntensity={1.5}>
+          <Html position={[0, 0.2, 0]}>
+            <button className='green' onClick={() => navigate('/about')}>
+              ABOUT
+            </button>
+          </Html>
+        </Float>
       </PresentationControls>
     </>
   )

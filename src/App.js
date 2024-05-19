@@ -22,6 +22,8 @@ function App() {
 
   const rem = useGLTF('./models/rem.glb')
 
+  const floor = useGLTF('./models/floor.glb')
+
   const environment = useGLTF('./models/environment.glb')
 
   const { progress } = useProgress()
@@ -78,6 +80,7 @@ function App() {
                       particles={particles}
                       environment={environment}
                       music={music}
+                      floor={floor}
                     />
                   </Suspense>
                 </Canvas>
