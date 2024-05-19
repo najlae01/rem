@@ -29,7 +29,23 @@ export default function Experience({
   audio.volume = 0.3
 
   console.log(rem)
+  console.log(particles)
 
+  environmentCombined.flipY = false
+  environmentCombined.roughness = 1
+  environmentCombined.metalness = 1
+  environmentCombined.colorSpace = THREE.SRGBColorSpace
+  const particleMaterial = new THREE.MeshBasicMaterial({
+    map: environmentCombined,
+    side: THREE.DoubleSide,
+    transparent: true,
+    alphaTest: 0.5,
+    toneMapped: false,
+  })
+
+  particles.scene.children.forEach((child) => {
+    child.material = particleMaterial
+  })
   let ParticlesMixer = new THREE.AnimationMixer(particles.scene)
   particles.animations.forEach((clip) => {
     const action = ParticlesMixer.clipAction(clip)
