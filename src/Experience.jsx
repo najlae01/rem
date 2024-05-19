@@ -11,6 +11,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { useControls } from 'leva'
 import { useNavigate } from 'react-router-dom'
 import { extend } from '@react-three/fiber'
+import { useEffect, useRef } from 'react'
 
 export default function Experience({
   rem,
@@ -19,32 +20,19 @@ export default function Experience({
   floor,
   music,
 }) {
-  const { cameraInitialPositionForMobile, cameraInitialPositionForDesktop } =
-    useControls('Camera Initial Position', {
-      cameraInitialPositionForDesktop: {
-        value: { x: 5.5, y: 3.5, z: 11 },
-        step: 0.1,
-        joystick: 'invertY',
-      },
-      cameraInitialPositionForMobile: {
-        value: { x: 13.5, y: 6, z: 24 },
-        step: 0.1,
-        joystick: 'invertY',
-      },
-    })
-
   const environmentCombined = useTexture('/textures/Environment_Combined.png')
 
   const remColor = useTexture('/textures/Rem_Color.png')
   const remShadedColor = useTexture('/textures/Rem_ColorShaded.png')
   const remOpaque = useTexture('/textures/Rem_Opaque.png')
+  const remCombined = useTexture('/textures/Rem_Combined.png')
 
   let RemMixer = new THREE.AnimationMixer(rem.scene)
   let audio = new Audio('./audio/ChibiRems-Confession.mp3')
   audio.loop = false
   audio.volume = 0.3
 
-  console.log(environment)
+  console.log(rem)
 
   let ParticlesMixer = new THREE.AnimationMixer(particles.scene)
   particles.animations.forEach((clip) => {
@@ -104,6 +92,21 @@ export default function Experience({
         position={[2.4, 0.35, 5.35]}
         rotation={[-0.3, 0.4, 0.135]}
       />
+
+      {/* <mesh
+        geometry={rem.nodes.GME_Outline.geometry}
+        position={[2.4, 0.35, 5.35]}
+        rotation={[-0.3, 0.4, 0.135]}
+      >
+        <meshBasicMaterial
+          map={remCombined}
+          map-flipY={false}
+          transparent
+          alphaTest={0.1}
+          roughness={1}
+          metalness={0.7}
+        />
+      </mesh> */}
       <mesh
         geometry={floor.nodes.Bg_Floor.geometry}
         position={[2.4, 0.35, 5.35]}
