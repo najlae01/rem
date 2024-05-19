@@ -108,12 +108,7 @@ export default function Experience({
 
   return (
     <>
-      <OrbitControls
-        minAzimuthAngle={-1}
-        maxAzimuthAngle={1}
-        minPolarAngle={-0.25}
-        maxPolarAngle={1.29}
-      />
+      <OrbitControls minPolarAngle={-0.25} maxPolarAngle={1.36} />
       <primitive
         object={particles.scene}
         position={[2.4, 0.15, 5.35]}
@@ -165,7 +160,7 @@ export default function Experience({
       </Float>
 
       <Float floatIntensity={1.5}>
-        <Html position={[-3.5, -1.5, 0]}>
+        <Html position={[-4.5, -1.5, 0]}>
           <button className='blue' onClick={() => navigate('/contact')}>
             CONTACT
           </button>
@@ -173,7 +168,7 @@ export default function Experience({
       </Float>
 
       <Float floatIntensity={1.5}>
-        <Html position={[0, 0.2, 0]}>
+        <Html position={[0.3, 0.5, 0]}>
           <button className='green' onClick={() => navigate('/about')}>
             ABOUT
           </button>
