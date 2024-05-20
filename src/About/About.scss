@@ -26,11 +26,10 @@
 }
 
 .about-me::-webkit-scrollbar {
-  display: none;
-  /**-ms-overflow-style: none;
+  -ms-overflow-style: none;
   scrollbar-width: thin !important;
   scrollbar-color: #4585c4 !important;
-  background-color: #4585c4 !important;**/
+  background-color: #4585c4 !important;
 }
 
 .about-card > .header-text {
