@@ -1,20 +1,10 @@
-import {
-  Html,
-  OrbitControls,
-  Float,
-  PresentationControls,
-  useTexture,
-  shaderMaterial,
-} from '@react-three/drei'
+import { Html, OrbitControls, Float, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
-import { useFrame, useThree } from '@react-three/fiber'
-import { useControls } from 'leva'
+import { useFrame } from '@react-three/fiber'
 import { useNavigate } from 'react-router-dom'
-import { a, useSpring } from '@react-spring/three'
-import { extend } from '@react-three/fiber'
-import { useEffect, useRef } from 'react'
+import './Main.css'
 
-export default function Experience({
+export default function Main({
   rem,
   particles,
   environment,

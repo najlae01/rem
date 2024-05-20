@@ -1,7 +1,6 @@
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useLoader } from '@react-three/fiber'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
-import './App.css'
-import Experience from './Experience'
+import Main from './Main/Main'
 import { Suspense, useEffect, useState } from 'react'
 import { useGLTF, useProgress } from '@react-three/drei'
 import { LoadingScreen } from './LoadingScreen/LoadingScreen'
@@ -89,7 +88,7 @@ function App() {
                   }}
                 >
                   <Suspense fallback={null}>
-                    <Experience
+                    <Main
                       rem={rem}
                       particles={particles}
                       environment={environment}
