@@ -65,6 +65,7 @@ img {
   padding-bottom: 1rem;
   min-width: 18rem;
   color: #ffffff;
+  font-weight: 600;
 }
 
 .contact-placeholder::placeholder {

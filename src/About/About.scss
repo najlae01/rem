@@ -678,10 +678,17 @@ select {
 /* Media query for mobile styles */
 @media (max-width: 650px) {
   .about-me {
-    max-width: 100vw;
-    max-height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
     border-radius: 0%;
     border: none;
+  }
+
+  .go-back {
+    margin-left: 1.7rem;
+    margin-top: 1.7rem;
   }
 
   .skill-icon > .icon-link > .icon {
@@ -693,7 +700,7 @@ select {
   }
 
   .about-card {
-    padding: 0rem 2.5rem 2.5rem 1.7rem !important;
+    padding: 0rem 1.5rem 2.5rem 2.5rem !important;
   }
 
   .category-title {
