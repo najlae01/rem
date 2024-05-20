@@ -6,8 +6,7 @@
   min-width: 60vh;
   min-height: 60vh;
   max-height: 70vh;
-  padding-right: 2rem;
-
+  padding: 1rem 3rem 2.5rem 5.5rem;
   background-color: #4585c4;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
   box-shadow: 0 0 12px #bddbfa;
@@ -21,6 +20,11 @@
   color: #ffffff;
 }
 
+.about-card > .go-back {
+  margin-left: -3.8rem !important;
+  margin-top: 0.8rem;
+}
+
 .about-me::-webkit-scrollbar {
   display: none;
   /**-ms-overflow-style: none;
@@ -30,7 +34,6 @@
 }
 
 .about-card {
-  margin-left: 4.5rem;
 }
 
 .about-card > .header-text {
@@ -684,11 +687,12 @@ select {
     height: 100vh;
     border-radius: 0%;
     border: none;
+    padding: 1rem 3rem 2.5rem 1.8rem;
   }
 
-  .about-me > .go-back {
-    margin-left: 1.7rem;
-    margin-top: 1.7rem;
+  .about-card > .go-back {
+    margin-left: -3.5rem;
+    margin-top: 0;
   }
 
   .skill-icon > .icon-link > .icon {
@@ -697,10 +701,6 @@ select {
 
   .about-card > .header-text {
     font-size: 1.8rem;
-  }
-
-  .about-card {
-    padding: 0rem 1.5rem 2.5rem 2.5rem !important;
   }
 
   .category-title {

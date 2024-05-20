@@ -43,12 +43,15 @@ export default function About({ music, isMobile }) {
   return (
     <div className='main'>
       <div className='about-me'>
-        <button className='hide-elements go-back' onClick={() => navigate('/')}>
-          <div className='nav-icon'>
-            <div className='arrows'></div>
-          </div>
-        </button>
         <div className='about-card'>
+          <button
+            className='hide-elements go-back'
+            onClick={() => navigate('/')}
+          >
+            <div className='nav-icon'>
+              <div className='arrows'></div>
+            </div>
+          </button>
           <h1 className='hide-elements header-text'>Meet my amazing hero</h1>
           <div className='hide-elements flex row w-100'>
             <div
