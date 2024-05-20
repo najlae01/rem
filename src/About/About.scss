@@ -6,7 +6,7 @@
   min-width: 60vh;
   min-height: 60vh;
   max-height: 70vh;
-  padding: 1rem 3rem 2.5rem 5.5rem;
+  padding: 1rem 2.5rem 2.5rem 6rem;
   background-color: #4585c4;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
   box-shadow: 0 0 12px #bddbfa;
@@ -21,7 +21,7 @@
 }
 
 .about-card > .go-back {
-  margin-left: -3.8rem !important;
+  margin-left: -4.2rem !important;
   margin-top: 0.8rem;
 }
 
@@ -687,7 +687,7 @@ select {
     height: 100vh;
     border-radius: 0%;
     border: none;
-    padding: 1rem 3rem 2.5rem 1.8rem;
+    padding: 1rem 3rem 2.5rem 5rem;
   }
 
   .about-card > .go-back {
@@ -710,11 +710,7 @@ select {
 
 @media (max-width: 900px) {
   .about-card > .header-text {
-    font-size: 1.7rem;
-  }
-
-  .about-card {
-    margin-left: 3rem;
+    font-size: 2rem;
   }
 
   .category-title {
