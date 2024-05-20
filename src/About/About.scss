@@ -14,14 +14,7 @@
   border-radius: 3% 0% 0% 3%;
   overflow-x: hidden;
   overflow-y: auto;
-  -webkit-user-select: none;
-  user-select: none;
   color: #ffffff;
-}
-
-.about-card > .go-back {
-  margin-left: -4.2rem !important;
-  margin-top: 0.8rem;
 }
 
 .about-me::-webkit-scrollbar {
@@ -29,6 +22,11 @@
   scrollbar-width: thin !important;
   scrollbar-color: #3b72a8 !important;
   background-color: #3b72a8 !important;
+}
+
+.about-card > .go-back {
+  margin-left: -4.2rem !important;
+  margin-top: 0.8rem;
 }
 
 .about-card > .header-text {
