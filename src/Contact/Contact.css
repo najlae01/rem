@@ -97,7 +97,8 @@ img {
 
 @media (max-width: 500px) {
   .contact-placeholder {
-    min-width: 13rem;
+    min-width: 6rem;
+    width: 12rem;
   }
 }
 
@@ -111,7 +112,7 @@ img {
 @media (max-width: 900px) {
   .contact-me {
     min-width: 50vw;
-    max-width: 85vw;
+    max-width: 82vw;
     min-height: min-content;
     max-height: 90vh;
   }
@@ -122,12 +123,13 @@ img {
   }
 
   img {
-    width: 75px;
-    height: 75px;
+    width: 70px;
+    height: 70px;
   }
 
   .header-text {
-    margin-top: 1rem;
+    margin-top: 3rem;
+    margin-top: 0.7rem;
   }
 
   .contact-form {
