@@ -13,8 +13,6 @@ body,
   background: linear-gradient(135deg, #4c8ac8 45%, #d4e5f6 100%);
   background-color: #4c8ac8;
   font-family: 'Rajdhani', sans-serif;
-  -webkit-user-select: none;
-  user-select: none;
   color: #ffffff;
 }
 
@@ -84,8 +82,6 @@ button.green:hover {
 /** go back arrow**/
 
 .go-back {
-  margin-left: 1rem;
-  margin-top: 1rem;
   width: 0px;
   border-radius: 50%;
   background: transparent;
@@ -194,8 +190,6 @@ button:hover {
 
   .go-back {
     text-align: left;
-    margin-left: 1rem;
-    margin-top: 1rem;
     transform: scale(0.75);
   }
 }
