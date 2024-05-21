@@ -3,6 +3,7 @@
 html,
 body,
 #root {
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -14,7 +15,10 @@ body,
   justify-content: center;
   transition: opacity 8s;
   z-index: 1;
-  background: linear-gradient(135deg, #4c8ac8 45%, #d4e5f6 100%);
+  background-image: url('./../public/images/background.png') !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #4c8ac8;
   font-family: 'Rajdhani', sans-serif;
   color: #ffffff;
@@ -70,6 +74,14 @@ button.green {
   text-shadow: 0px 1px 0px #87fb83;
 }
 
+button.yellow {
+  box-shadow: inset 0px 1px 0px 0px #fffce3;
+  background: linear-gradient(to bottom, #fff6ae 5%, #d8c744 100%);
+  background-color: #fff6b0;
+  border: 1px solid #ebde81;
+  text-shadow: 0px 1px 0px #fff07c;
+}
+
 button.blue:hover {
   background: linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
   background-color: #80b5ea;
@@ -85,9 +97,15 @@ button.green:hover {
   background-color: #60eb5b;
 }
 
+button.yellow:hover {
+  background: linear-gradient(to bottom, #e4d45c 5%, #fcf4b9 100%);
+  background-color: #e3d568;
+}
+
 /** go back arrow**/
 
 .go-back {
+  z-index: 1000;
   width: 0px;
   border-radius: 50%;
   background: transparent;
@@ -152,6 +170,11 @@ button:hover {
   background-color: #80b5ea;
 }
 
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .go-back:hover {
   box-shadow: 0px 0px 15px 5px #dcecfb;
 }
@@ -186,6 +209,26 @@ button:hover {
   pointer-events: all;
   opacity: 1;
   transition: opacity 1.5s ease-in-out;
+}
+
+.music {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: 1.5rem;
+  margin-right: 1.5rem;
+  width: fit-content;
+  height: fit-content;
+  z-index: 100;
+  padding: 0.5rem;
+}
+
+.music-icon {
+  font-size: 1.5rem;
+}
+
+.music:hover {
+  cursor: pointer;
 }
 
 /* Media query for mobile styles */

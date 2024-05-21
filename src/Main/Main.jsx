@@ -2,7 +2,6 @@ import { Html, OrbitControls, Float, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 import { useNavigate } from 'react-router-dom'
-import './Main.css'
 
 export default function Main({
   rem,
@@ -53,7 +52,7 @@ export default function Main({
     ParticlesMixer.update(delta)
 
     if (audio.paused && (!animation || !animation.isRunning())) {
-      music.play()
+      music.current.play()
     }
   })
 
@@ -61,7 +60,7 @@ export default function Main({
     animation = RemMixer.clipAction(rem.animations[0])
     if (!animation.isRunning() && audio.paused) {
       animation.reset()
-      music.pause()
+      music.current.pause()
       animation.setLoop(THREE.LoopOnce)
       //action.clampWhenFinished = true
       animation.enabled = true
@@ -73,7 +72,7 @@ export default function Main({
         // Check if the animation is still running
         if (!animation.isRunning()) {
           // If the animation is also finished, play the music
-          music.play()
+          music.current.play()
         }
       }
     }
@@ -162,6 +161,14 @@ export default function Main({
         <Html position={[0.3, 0.5, 0]}>
           <button className='green' onClick={() => navigate('/about')}>
             ABOUT
+          </button>
+        </Html>
+      </Float>
+
+      <Float floatIntensity={1.5}>
+        <Html position={isMobile ? [-2, -2.5, 0] : [-2.7, -2.5, 0]}>
+          <button className='yellow' onClick={() => navigate('/projects')}>
+            PROJECTS
           </button>
         </Html>
       </Float>
