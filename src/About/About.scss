@@ -13,11 +13,12 @@
   border: 1px solid #528fcc84;
   border-radius: 3% 0% 0% 3%;
   color: #ffffff;
-  pointer-events: all;
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  touch-action: auto;
+  -ms-touch-action: auto;
 }
 
 .about-me::-webkit-scrollbar {
@@ -684,23 +685,15 @@ select {
     border-radius: 0%;
     border: none;
     padding: 1.5rem 3rem 2.5rem 5.5rem;
-    pointer-events: all;
-    overflow: scroll;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .about-me::-webkit-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: 2px !important;
-    scrollbar-color: #3b72a8 !important;
-    background-color: #3b72a8 !important;
   }
 
   .about-card > .go-back {
     margin-left: -3.5rem;
     margin-top: 0;
+  }
+
+  select {
+    background-size: 5%;
   }
 
   .skill-icon > .icon-link > .icon {
