@@ -14,8 +14,8 @@
   border-radius: 3% 0% 0% 3%;
   color: #ffffff;
   scroll-behavior: smooth !important;
-  overflow-y: scroll !important;
-  overflow-x: hidden;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
   -ms-overflow-style: none;
   scrollbar-width: none;
   touch-action: auto;
@@ -688,7 +688,8 @@ option {
     border: none;
     padding: 1.5rem 3rem 2.5rem 5.5rem;
     scroll-behavior: smooth !important;
-    overflow-y: scroll !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
   }
 
   .about-card > .go-back {
@@ -721,7 +722,8 @@ option {
 @media (max-width: 900px) {
   .about-me {
     scroll-behavior: smooth !important;
-    overflow-y: scroll !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
   }
 
   .about-card > .header-text {

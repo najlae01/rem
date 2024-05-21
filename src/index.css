@@ -16,14 +16,6 @@ body,
   color: #ffffff;
 }
 
-*::-webkit-scrollbar {
-  -ms-overflow-style: none;
-  /* scrollbar-width: none; */
-  scrollbar-width: thin !important;
-  scrollbar-color: #11120b !important;
-  background-color: #11120b !important;
-}
-
 * {
   box-sizing: border-box;
   touch-action: none !important;
