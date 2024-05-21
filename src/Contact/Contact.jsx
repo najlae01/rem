@@ -78,7 +78,6 @@ export default function Contact({ music }) {
   }, [])
 
   return (
-    <div div className='main'>
       <div className='contact-me'>
         <button className='hide-elements go-back' onClick={() => navigate('/')}>
           <div className='nav-icon'>
@@ -165,6 +164,5 @@ export default function Contact({ music }) {
           </div>
         </form>
       </div>
-    </div>
   )
 }
