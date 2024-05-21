@@ -126,9 +126,6 @@ export default function About({ music, isMobile }) {
           </div>
         )}
         <Skills />
-        <Skills />
-        <Skills />
-        <Skills />
       </div>
     </div>
   )
