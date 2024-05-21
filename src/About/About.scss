@@ -13,12 +13,12 @@
   border: 1px solid #528fcc84;
   border-radius: 3% 0% 0% 3%;
   color: #ffffff;
+  scroll-behavior: smooth;
+  touch-action: auto;
+  -ms-touch-action: auto;
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  touch-action: auto;
-  -ms-touch-action: auto;
 }
 
 .about-me::-webkit-scrollbar {
