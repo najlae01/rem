@@ -120,7 +120,7 @@ button.dark {
   &:disabled {
     background: gray;
     background-color: gray;
-  box-shadow: inset 0px 1px 0px 0px #a0a0a0;
+    box-shadow: inset 0px 1px 0px 0px #a0a0a0;
     border: none;
   }
 }
@@ -202,6 +202,11 @@ button.dark {
   }
   .item.active {
     display: block;
+  }
+
+  .my-projects > .go-back {
+    margin-top: 1rem;
+    margin-left: 1.5rem;
   }
 }
 
