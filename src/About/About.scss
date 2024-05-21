@@ -687,9 +687,6 @@ option {
     border-radius: 0%;
     border: none;
     padding: 1.5rem 3rem 2.5rem 5.5rem;
-    scroll-behavior: smooth !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
   }
 
   .about-card > .go-back {
@@ -720,12 +717,6 @@ option {
 }
 
 @media (max-width: 900px) {
-  .about-me {
-    scroll-behavior: smooth !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-  }
-
   .about-card > .header-text {
     font-size: 2rem;
   }
