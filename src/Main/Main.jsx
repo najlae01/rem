@@ -9,6 +9,7 @@ export default function Main({
   environment,
   floor,
   music,
+  isPlaying,
   isMobile,
 }) {
   const environmentCombined = useTexture('/textures/Environment_Combined.png')
@@ -51,7 +52,7 @@ export default function Main({
     RemMixer.update(delta)
     ParticlesMixer.update(delta)
 
-    if (audio.paused && (!animation || !animation.isRunning())) {
+    if (isPlaying && audio.paused && (!animation || !animation.isRunning())) {
       music.current.play()
     }
   })
@@ -70,7 +71,7 @@ export default function Main({
       // Add an event listener for the 'ended' event of the audio
       audio.onended = () => {
         // Check if the animation is still running
-        if (!animation.isRunning()) {
+        if (isPlaying && !animation.isRunning()) {
           // If the animation is also finished, play the music
           music.current.play()
         }

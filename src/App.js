@@ -50,9 +50,8 @@ function App() {
       clickAudio.play()
       if (music && start) {
         setTimeout(() => {
-          if (music.current.paused && isPlaying) {
+          if (music.current.paused) {
             setIsPlaying(true)
-            music.current.play()
           }
         }, 4000)
       }
@@ -112,12 +111,23 @@ function App() {
                         rem={rem}
                         particles={particles}
                         environment={environment}
-                        music={music}
                         floor={floor}
+                        music={music}
+                        isPlaying={isPlaying}
                         isMobile={isMobile}
                       />
                     </Suspense>
                   </Canvas>
+                  <button
+                    className='music'
+                    onClick={() => setIsPlaying(!isPlaying)}
+                  >
+                    {isPlaying ? (
+                      <MdMusicNote className='music-icon' />
+                    ) : (
+                      <MdMusicOff className='music-icon' />
+                    )}
+                  </button>
                 </>
               )}
             </>
