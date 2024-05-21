@@ -241,4 +241,13 @@ button:disabled {
     text-align: left;
     transform: scale(0.75);
   }
+
+  .music {
+    margin-top: 1rem;
+    margin-right: 1rem;
+  }
+
+  .music-icon {
+    font-size: 1.2rem;
+  }
 }

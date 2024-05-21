@@ -151,7 +151,7 @@ export default function Main({
       </Float>
 
       <Float floatIntensity={1.5}>
-        <Html position={isMobile ? [-2.5, -1.5, 0] : [-4.5, -1.5, 0]}>
+        <Html position={isMobile ? [-2.5, 0, 0] : [-4.5, -1.5, 0]}>
           <button className='blue' onClick={() => navigate('/contact')}>
             CONTACT
           </button>
@@ -159,7 +159,7 @@ export default function Main({
       </Float>
 
       <Float floatIntensity={1.5}>
-        <Html position={[0.3, 0.5, 0]}>
+        <Html position={[0.3, 1, 0]}>
           <button className='green' onClick={() => navigate('/about')}>
             ABOUT
           </button>
@@ -167,7 +167,7 @@ export default function Main({
       </Float>
 
       <Float floatIntensity={1.5}>
-        <Html position={isMobile ? [-2, -2.5, 0] : [-2.7, -2.5, 0]}>
+        <Html position={isMobile ? [-2.7, -3.7, 0] : [-2.7, -2.5, 0]}>
           <button className='yellow' onClick={() => navigate('/projects')}>
             PROJECTS
           </button>
