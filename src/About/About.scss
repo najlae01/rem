@@ -691,6 +691,13 @@ select {
     -webkit-overflow-scrolling: touch;
   }
 
+  .about-me::-webkit-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: 2px !important;
+    scrollbar-color: #3b72a8 !important;
+    background-color: #3b72a8 !important;
+  }
+
   .about-card > .go-back {
     margin-left: -3.5rem;
     margin-top: 0;
