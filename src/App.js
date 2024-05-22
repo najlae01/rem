@@ -89,12 +89,6 @@ function App() {
           path='/'
           element={
             <>
-              <LoadingScreen
-                started={start}
-                onStarted={() => setStart(true)}
-                progress={progress}
-                modelLoaded={modelLoaded}
-              />
               {start && (
                 <>
                   <Canvas
@@ -118,6 +112,7 @@ function App() {
                       />
                     </Suspense>
                   </Canvas>
+
                   <button
                     className='music'
                     onClick={() => setIsPlaying(!isPlaying)}
@@ -130,6 +125,12 @@ function App() {
                   </button>
                 </>
               )}
+              <LoadingScreen
+                started={start}
+                onStarted={() => setStart(true)}
+                progress={progress}
+                modelLoaded={modelLoaded}
+              />
             </>
           }
         />
