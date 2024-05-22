@@ -18,9 +18,7 @@ export const LoadingScreen = ({
         />
       </div>
       <div className='loadingScreen__board'>
-        {!modelLoaded || progress < 100 ? (
-          <h1 className='loadingScreen__title'>Waiting for Rem...🪄</h1>
-        ) : (
+        {modelLoaded && progress == 100 ? (
           <>
             <h1 className='loadingScreen__title'>
               Rem is ready. May I introduce you my Hero?
@@ -33,6 +31,8 @@ export const LoadingScreen = ({
               Enter
             </button>
           </>
+        ) : (
+          <h1 className='loadingScreen__title'>Waiting for Rem...🪄</h1>
         )}
       </div>
     </div>
