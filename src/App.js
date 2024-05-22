@@ -89,42 +89,40 @@ function App() {
           path='/'
           element={
             <>
-              {start && (
-                <>
-                  <Canvas
-                    shadows
-                    camera={{
-                      fov: 35,
-                      near: 0.1,
-                      far: 2000,
-                      position: [5.5, 4, 11],
-                    }}
-                  >
-                    <Suspense fallback={null}>
-                      <Main
-                        rem={rem}
-                        particles={particles}
-                        environment={environment}
-                        floor={floor}
-                        music={music}
-                        isPlaying={isPlaying}
-                        isMobile={isMobile}
-                      />
-                    </Suspense>
-                  </Canvas>
-
-                  <button
-                    className='music'
-                    onClick={() => setIsPlaying(!isPlaying)}
-                  >
-                    {isPlaying ? (
-                      <MdMusicNote className='music-icon' />
-                    ) : (
-                      <MdMusicOff className='music-icon' />
-                    )}
-                  </button>
-                </>
-              )}
+              <>
+                <Canvas
+                  shadows
+                  camera={{
+                    fov: 35,
+                    near: 0.1,
+                    far: 2000,
+                    position: [5.5, 4, 11],
+                  }}
+                >
+                  <Suspense fallback={null}>
+                    <Main
+                      rem={rem}
+                      particles={particles}
+                      environment={environment}
+                      floor={floor}
+                      music={music}
+                      isPlaying={isPlaying}
+                      isMobile={isMobile}
+                      start={start}
+                    />
+                  </Suspense>
+                </Canvas>
+                <button
+                  className='music'
+                  onClick={() => setIsPlaying(!isPlaying)}
+                >
+                  {isPlaying ? (
+                    <MdMusicNote className='music-icon' />
+                  ) : (
+                    <MdMusicOff className='music-icon' />
+                  )}
+                </button>
+              </>
               <LoadingScreen
                 started={start}
                 onStarted={() => setStart(true)}

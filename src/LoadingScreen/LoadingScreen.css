@@ -2,7 +2,7 @@
 
 .loadingScreen {
   background: linear-gradient(135deg, #4c8ac8 45%, #d4e5f6 100%) !important;
-  background-color: #4c8ac8;
+  background-color: #4c8ac8 !important;
   position: fixed;
   top: 0;
   left: 0;

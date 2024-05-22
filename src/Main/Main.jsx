@@ -11,6 +11,7 @@ export default function Main({
   music,
   isPlaying,
   isMobile,
+  start,
 }) {
   const environmentCombined = useTexture('/textures/Environment_Combined.png')
 
@@ -99,80 +100,79 @@ export default function Main({
 
   return (
     <>
-      <OrbitControls minPolarAngle={-0.25} maxPolarAngle={1.36} />
-      <primitive
-        object={particles.scene}
-        position={[2.4, 0.15, 5.35]}
-        rotation={[-0.3, 0.4, 0.135]}
-      />
-
-      <primitive
-        object={remMesh}
-        position={[2.4, 0.55, 5.35]}
-        rotation={[-0.3, 0.4, 0.135]}
-      />
-
-      <mesh
-        geometry={floor.nodes.Bg_Floor.geometry}
-        position={[2.4, 0.55, 5.35]}
-        rotation={[-0.3, 0.4, 0.135]}
-      >
-        <meshBasicMaterial
-          map={environmentCombined}
-          side={THREE.DoubleSide}
-          map-flipY={false}
-          transparent
-          alphaTest={0.1}
-          roughness={1}
-          metalness={0.7}
-        />
-      </mesh>
-      <mesh
-        geometry={environment.nodes.Pillar_Wall.geometry}
-        position={[2.4, 0.555, 5.35]}
-        rotation={[-0.3, 0.4, 0.135]}
-      >
-        <meshBasicMaterial
-          map={environmentCombined}
-          side={THREE.DoubleSide}
-          map-flipY={false}
-          transparent
-          alphaTest={0.9}
-          roughness={1}
-          metalness={0.7}
-        />
-      </mesh>
-      <Float floatIntensity={1.5}>
-        <Html position={[0.5, -1.5, 0]}>
-          <button className='red' onClick={() => playRemConfession()}>
-            REM CONFESSION
-          </button>
-        </Html>
-      </Float>
-
-      <Float floatIntensity={1.5}>
-        <Html position={isMobile ? [-2.5, 0, 0] : [-4.5, -1.5, 0]}>
-          <button className='blue' onClick={() => navigate('/contact')}>
-            CONTACT
-          </button>
-        </Html>
-      </Float>
-
-      <Float floatIntensity={1.5}>
-        <Html position={[0.3, 1, 0]}>
-          <button className='green' onClick={() => navigate('/about')}>
-            ABOUT
-          </button>
-        </Html>
-      </Float>
-
-      <Float floatIntensity={1.5}>
-        <Html position={isMobile ? [-2.7, -3.7, 0] : [-2.7, -2.5, 0]}>
-          <button className='yellow' onClick={() => navigate('/projects')}>
-            PROJECTS
-          </button>
-        </Html>
-      </Float>
+      {start && (
+        <>
+          <OrbitControls minPolarAngle={-0.25} maxPolarAngle={1.36} />
+          <primitive
+            object={particles.scene}
+            position={[2.4, 0.15, 5.35]}
+            rotation={[-0.3, 0.4, 0.135]}
+          />
+          <primitive
+            object={remMesh}
+            position={[2.4, 0.55, 5.35]}
+            rotation={[-0.3, 0.4, 0.135]}
+          />
+          <mesh
+            geometry={floor.nodes.Bg_Floor.geometry}
+            position={[2.4, 0.55, 5.35]}
+            rotation={[-0.3, 0.4, 0.135]}
+          >
+            <meshBasicMaterial
+              map={environmentCombined}
+              side={THREE.DoubleSide}
+              map-flipY={false}
+              transparent
+              alphaTest={0.1}
+              roughness={1}
+              metalness={0.7}
+            />
+          </mesh>
+          <mesh
+            geometry={environment.nodes.Pillar_Wall.geometry}
+            position={[2.4, 0.555, 5.35]}
+            rotation={[-0.3, 0.4, 0.135]}
+          >
+            <meshBasicMaterial
+              map={environmentCombined}
+              side={THREE.DoubleSide}
+              map-flipY={false}
+              transparent
+              alphaTest={0.9}
+              roughness={1}
+              metalness={0.7}
+            />
+          </mesh>
+          <Float floatIntensity={1.5}>
+            <Html position={[0.5, -1.5, 0]}>
+              <button className='red' onClick={() => playRemConfession()}>
+                REM CONFESSION
+              </button>
+            </Html>
+          </Float>
+          <Float floatIntensity={1.5}>
+            <Html position={isMobile ? [-2.5, 0, 0] : [-4.5, -1.5, 0]}>
+              <button className='blue' onClick={() => navigate('/contact')}>
+                CONTACT
+              </button>
+            </Html>
+          </Float>
+          <Float floatIntensity={1.5}>
+            <Html position={[0.3, 1, 0]}>
+              <button className='green' onClick={() => navigate('/about')}>
+                ABOUT
+              </button>
+            </Html>
+          </Float>
+          <Float floatIntensity={1.5}>
+            <Html position={isMobile ? [-2.7, -3.7, 0] : [-2.7, -2.5, 0]}>
+              <button className='yellow' onClick={() => navigate('/projects')}>
+                PROJECTS
+              </button>
+            </Html>
+          </Float>
+        </>
+      )}
     </>
   )
 }
