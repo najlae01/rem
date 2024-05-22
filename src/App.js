@@ -48,7 +48,7 @@ function App() {
   useEffect(() => {
     if (clickAudio && start) {
       clickAudio.play()
-      if (music && start) {
+      if (music) {
         setTimeout(() => {
           if (music.current.paused) {
             setIsPlaying(true)
